@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonedi - Royal Bengali Meal Subscription</title>
+    <!-- Google Fonts for Classic Royal Typography & Modern Clean Inputs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           ROYAL BENGALI LIGHT THEME SYSTEM (DAYLIGHT OPTIMIZED)
+           ========================================================================== */
+        :root {
+            --bg-body: #f6f1e7;
+            --bg-hero: linear-gradient(135deg, #faf4eb 0%, #eae0cf 100%);
+            --bg-form-panel: #f6f1e7;
+            --bg-card: #ffffff;
+            --bg-header: #ffffff;
+            --text-main: #1c0e16;
+            --text-muted: #4e3f47;
+            --text-label: #1c0e16;
+            --brand-title-color: #6b1936;
+            /* Royal Burgundy matching Logo */
+            --brand-tag-color: #8c6608;
+            /* Royal Antique Gold matching Logo */
+            --gold-primary: #8c6608;
+            --gold-light: #705204;
+            --gold-dark: #4d3800;
+            --gold-gradient: linear-gradient(135deg, #a67c1e 0%, #78570b 100%);
+            --border-gold: rgba(140, 102, 8, 0.35);
+            --border-gold-hover: rgba(140, 102, 8, 0.85);
+            --input-bg: #fdfbf7;
+            --input-focus-bg: #ffffff;
+            --input-border: #8c6608;
+            --card-option-bg: #fdfbf7;
+            --card-option-selected: #f7eedd;
+            --note-bg: #f9f2e3;
+            --note-border: #8c6608;
+            --focus-ring: rgba(140, 102, 8, 0.3);
+            --shadow-card: 0 10px 30px rgba(45, 20, 30, 0.08), 0 0 15px rgba(140, 102, 8, 0.12);
+            --icon-stroke: #8c6608;
+            --btn-text: #ffffff;
+            --badge-bg: rgba(140, 102, 8, 0.12);
+            --radius-card: 20px;
+            --radius-input: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 14px 40px;
+            background-color: var(--bg-header);
+            border-bottom: 1.5px solid var(--border-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(45, 20, 30, 0.05);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-brand img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+            /* border: 2px solid var(--gold-primary); */
+            box-shadow: 0 0 14px rgba(140, 102, 8, 0.28);
+            background-color: #fff;
+            flex-shrink: 0;
+        }
+
+        .brand-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--brand-title-color);
+            line-height: 1.1;
+        }
+
+        .brand-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--brand-tag-color);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        /* Unboxed Split-Screen Page Wrapper */
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: 400px minmax(0, 1fr);
+            min-height: calc(100vh - 102px);
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Left Side Hero Panel */
+        .hero-panel {
+            background: var(--bg-hero);
+            padding: 40px 36px;
+            border-right: 1px solid var(--border-gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 24px;
+            position: relative;
+            min-width: 0;
+        }
+
+        .royal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--badge-bg);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .hero-headline {
+            font-family: 'Cinzel', serif;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        .hero-headline span {
+            color: var(--brand-title-color);
+        }
+
+        .hero-description {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-muted);
+        }
+
+        /* Left Side Feature Items */
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-gold);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .feature-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold-primary);
+            fill: none;
+            stroke-width: 2.5;
+            flex-shrink: 0;
+        }
+
+        /* Right Side Form Workspace */
+        .form-panel {
+            background-color: var(--bg-form-panel);
+            padding: 36px 48px;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .form-header-title {
+            margin-bottom: 28px;
+        }
+
+        .form-header-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--brand-title-color);
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .form-header-title p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Form Unboxed Section Cards */
+        .form-card-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-card);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            width: 100%;
+            min-width: 0;
+            /* overflow: hidden; */
+        }
+
+        .form-card-section:hover {
+            border-color: var(--border-gold-hover);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--brand-title-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .section-number {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        fieldset {
+            border: none;
+            min-width: 0;
+            width: 100%;
+        }
+
+        /* Responsive Grid Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            min-width: 0;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .grid-2>* {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-label);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.3px;
+        }
+
+        .optional-badge {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 11px;
+            background: var(--badge-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Input Container with Embedded SVG Icons */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            width: 18px;
+            height: 18px;
+            stroke: var(--icon-stroke);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+            transition: stroke 0.25s ease;
+            z-index: 1;
+        }
+
+        /* Royal Input Field Styling */
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            height: 52px;
+            padding: 0 14px 0 44px;
+            border: 1.5px solid var(--input-border);
+            border-radius: var(--radius-input);
+            font-size: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: var(--text-main);
+            background-color: var(--input-bg);
+            transition: all 0.25s ease;
+            outline: none;
+            text-overflow: ellipsis;
+            line-height: 52px;
+        }
+
+        /* Custom Calendar Picker Trigger Button */
+        .date-picker-btn {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 52px;
+            padding: 0 14px 0 44px;
+            border: 1.5px solid var(--input-border);
+            border-radius: var(--radius-input);
+            font-size: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: var(--input-bg);
+            transition: all 0.25s ease;
+            outline: none;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .date-picker-btn.has-value {
+            color: var(--text-main);
+        }
+
+        .date-picker-btn:focus,
+        .date-picker-btn.open {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3.5px var(--focus-ring);
+            background-color: var(--input-focus-bg);
+        }
+
+        /* ── Custom Calendar Dropdown ── */
+        .cal-popup {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 9000;
+            background: #fffdf7;
+            border: 1.5px solid var(--border-gold-hover);
+            border-radius: 16px;
+            box-shadow: 0 16px 48px rgba(45, 20, 30, 0.18), 0 4px 16px rgba(140, 102, 8, 0.14);
+            padding: 16px;
+            width: 300px;
+            user-select: none;
+            animation: calFadeIn 0.18s ease;
+        }
+
+        .cal-popup.open {
+            display: block;
+        }
+
+        @keyframes calFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Calendar Header */
+        .cal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .cal-nav {
+            background: var(--badge-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold-primary);
+            font-size: 16px;
+            transition: background 0.18s;
+            flex-shrink: 0;
+        }
+
+        .cal-nav:hover {
+            background: rgba(140, 102, 8, 0.2);
+        }
+
+        .cal-month-year {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand-title-color);
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Day-of-week labels */
+        .cal-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-bottom: 4px;
+        }
+
+        .cal-weekday {
+            text-align: center;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--text-muted);
+            padding: 4px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Day cells grid */
+        .cal-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 3px;
+        }
+
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .cal-day:hover:not(.disabled):not(.selected) {
+            background: rgba(140, 102, 8, 0.14);
+            color: var(--gold-primary);
+        }
+
+        .cal-day.today {
+            border: 1.5px solid var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        .cal-day.selected {
+            background: var(--gold-gradient);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(140, 102, 8, 0.32);
+        }
+
+        .cal-day.disabled {
+            color: #cbbfa0;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .cal-day.empty {
+            pointer-events: none;
+        }
+
+        /* Select Input Styling with Custom Gold Arrow */
+        select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c6608' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3.5px var(--focus-ring);
+            background-color: var(--input-focus-bg);
+        }
+
+        input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.75;
+        }
+
+        /* Segmented Radio Cards for Address Type */
+        .segmented-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            min-width: 0;
+        }
+
+        .segment-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border: 1.5px solid var(--input-border);
+            border-radius: var(--radius-input);
+            background-color: var(--card-option-bg);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+            min-width: 0;
+        }
+
+        .segment-option:hover {
+            border-color: var(--border-gold-hover);
+        }
+
+        .segment-option:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background-color: var(--card-option-selected);
+            box-shadow: inset 0 0 12px rgba(140, 102, 8, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .segment-option input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .segment-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Subscription Plan Cards */
+        .plan-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .plan-option-card {
+            display: flex;
+            align-items: center;
+            padding: 18px 22px;
+            border: 1.5px solid var(--input-border);
+            border-radius: var(--radius-input);
+            background-color: var(--card-option-bg);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            min-width: 0;
+        }
+
+        .plan-option-card:hover {
+            border-color: var(--border-gold-hover);
+            transform: translateY(-1px);
+        }
+
+        .plan-option-card:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background-color: var(--card-option-selected);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), inset 0 0 12px rgba(140, 102, 8, 0.1);
+        }
+
+        .plan-option-card input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 20px;
+            height: 20px;
+            margin-right: 16px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .plan-card-text {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .plan-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+
+        .plan-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .price-tag {
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            color: var(--gold-primary);
+            font-size: 15px;
+            background: var(--badge-bg);
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-gold);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Attention Callout Note */
+        .plan-note {
+            margin-top: 16px;
+            padding: 16px 18px;
+            background-color: var(--note-bg);
+            border-left: 4px solid var(--note-border);
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .plan-note-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            stroke: var(--gold-primary);
+            fill: none;
+            stroke-width: 2;
+            margin-top: 2px;
+        }
+
+        .plan-note strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Action Button */
+        .submit-btn {
+            width: 100%;
+            background: var(--gold-gradient);
+            color: var(--btn-text);
+            border: none;
+            padding: 18px;
+            font-family: 'Cinzel', serif;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            border-radius: var(--radius-input);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 24px rgba(140, 102, 8, 0.25);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            filter: brightness(1.08);
+            box-shadow: 0 12px 32px rgba(140, 102, 8, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .page-wrapper {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-panel {
+                border-right: none;
+                border-bottom: 1px solid var(--border-gold);
+                padding: 32px 24px;
+            }
+
+            .form-panel {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 12px 18px;
+            }
+
+            .nav-brand img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .brand-title {
+                font-size: 17px;
+            }
+
+            .form-panel {
+                padding: 24px 16px;
+            }
+
+            .form-card-section {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 0;
+            }
+
+            .segmented-cards {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+
+        /* Extra small screens — keep plan title + price on one line */
+        @media (max-width: 400px) {
+            .plan-option-card {
+                padding: 16px 14px;
+            }
+
+            .plan-option-card input[type="radio"] {
+                margin-right: 12px;
+            }
+
+            .plan-card-title {
+                font-size: 14.5px;
+            }
+
+            .price-tag {
+                font-size: 13px;
+                padding: 4px 9px;
+            }
+        }
+
+        /* ── Success Modal ── */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .custom-modal.show {
+            display: flex;
+        }
+
+        .custom-modal .modal-content {
+            position: relative;
+            background: linear-gradient(160deg, #fffdf5 0%, #fff8e8 60%, #fdf3e3 100%);
+            border-radius: 24px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(107, 25, 54, 0.2), 0 4px 20px rgba(140, 102, 8, 0.15);
+            overflow: hidden;
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-balloon-area {
+            background: linear-gradient(180deg, #f9ecd0 0%, #fffdf5 100%);
+            padding: 32px 24px 20px;
+            border-bottom: 1px solid rgba(140, 102, 8, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-logo {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            box-shadow: 0 8px 24px rgba(140, 102, 8, 0.28);
+            background-color: #fff;
+        }
+
+        .modal-body {
+            padding: 28px 32px 32px;
+        }
+
+        .modal-subtitle {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            font-weight: 700;
+            background: rgba(140, 102, 8, 0.08);
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-bottom: 14px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brand-title-color);
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+
+        .modal-message {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        #modalCloseBtn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--brand-title-color) 0%, #9b2448 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        #modalCloseBtn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .modal-close-x {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: rgba(107, 25, 54, 0.12);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--brand-title-color);
+            transition: background 0.2s;
+        }
+
+        .modal-close-x:hover {
+            background: rgba(107, 25, 54, 0.25);
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.85) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <img id="bonediLogo"
+                src="https://cdn.jsdelivr.net/gh/bonedibiryani-de/Bonedi-Everyday-Image@7bbac14a1a7450f448062658143c99c8129bcccc/Bonedi%20Everyday%20White%20BG.jpg"
+                alt="Bonedi Logo"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80';">
+            <div class="brand-text-group">
+                <span class="brand-title">BONEDI EVERYDAY</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Split Screen Page Layout -->
+    <main class="page-wrapper">
+        <!-- Left Side Hero Panel -->
+        <aside class="hero-panel">
+            <div class="royal-badge">
+                <span>◆ ROYAL BENGALI CUISINE ◆</span>
+            </div>
+            <h1 class="hero-headline">Everyday <span>Rajbari Meals</span>, Delivered to Your Doorstep.</h1>
+            <p class="hero-description">
+                What if your everyday lunch wasn't just a meal…<br>
+                but a taste of the Bengal that is slowly being forgotten?<br><br>
+                Introducing Bonedi Everyday — a Bengali daily meal subscription created for Hyderabad.
+            </p>
+            <p class="hero-marketing">The lost recipes of Bengal, brought back to your everyday table.</p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>7 Course Bengali Rajbari Meals</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Rediscovering Bengal's Lost Recipes in Everyday Meals</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Free delivery up to 15km</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Freshly Cooked from our central kitchen Miyapur</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Safe, Clean and Packed with love and Hygiene</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Side Form Workspace -->
+        <section class="form-panel">
+            <div class="form-header-title">
+                <h2>Reserve Meal Subscription</h2>
+            </div>
+
+            <form id="mealSubscriptionForm" onsubmit="handleFormSubmit(event)">
+
+                <!-- Section 1: Subscription Plans -->
+                <div class="form-card-section">
+                    <div class="section-header">
+                        <span class="section-number">1</span>
+                        <span>Subscription Plans</span>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label>Select Plan</label>
+                            <div class="plan-cards">
+                                <label class="plan-option-card">
+                                    <input type="radio" name="plan" value="lunch" required>
+                                    <div class="plan-card-text">
+                                        <div class="plan-card-header">
+                                            <span class="plan-card-title">Lunch Plan</span>
+                                            <span class="price-tag">₹6,399 / mo</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="plan-option-card">
+                                    <input type="radio" name="plan" value="lunch_dinner">
+                                    <div class="plan-card-text">
+                                        <div class="plan-card-header">
+                                            <span class="plan-card-title">Lunch + Dinner Plan</span>
+                                            <span class="price-tag">₹8,999 / mo</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Professional Attention Note -->
+                            <div class="plan-note">
+                                <svg class="plan-note-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <div>
+                                    <strong>Please Note:</strong> For subscribers opting for the <strong>Lunch +
+                                        Dinner</strong> package, dinner meals are delivered simultaneously during the
+                                    afternoon lunch dispatch. Should you have special scheduling preferences, please
+                                    consult our team.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="mealCount">Number of Meals</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <select id="mealCount" name="mealCount" required>
+                                        <option value="" disabled selected>Select daily quantity</option>
+                                        <option value="1">1 meal / day</option>
+                                        <option value="2">2 meals / day</option>
+                                        <option value="3">3 meals / day</option>
+                                        <option value="4+">4+ meals / day</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Preferred Start Date</label>
+                                <div class="input-wrapper" style="position:relative;">
+                                    <svg class="input-icon" viewBox="0 0 24 24" style="pointer-events:none;z-index:1;">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <button type="button" class="date-picker-btn" id="startDateBtn" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Select a date
+                                    </button>
+                                    <!-- Hidden real input for form validation -->
+                                    <input type="hidden" id="startDate" name="startDate" required>
+                                    <!-- Custom Calendar Popup -->
+                                    <div class="cal-popup" id="startDateCal" role="dialog" aria-label="Date picker">
+                                        <div class="cal-header">
+                                            <button type="button" class="cal-nav" id="calPrev"
+                                                aria-label="Previous month">&#8249;</button>
+                                            <div class="cal-month-year" id="calMonthYear"></div>
+                                            <button type="button" class="cal-nav" id="calNext"
+                                                aria-label="Next month">&#8250;</button>
+                                        </div>
+                                        <div class="cal-weekdays">
+                                            <div class="cal-weekday">Su</div>
+                                            <div class="cal-weekday">Mo</div>
+                                            <div class="cal-weekday">Tu</div>
+                                            <div class="cal-weekday">We</div>
+                                            <div class="cal-weekday">Th</div>
+                                            <div class="cal-weekday">Fr</div>
+                                            <div class="cal-weekday">Sa</div>
+                                        </div>
+                                        <div class="cal-days" id="calDays"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Section 2: Personal Information -->
+                <div class="form-card-section">
+                    <div class="section-header">
+                        <span class="section-number">2</span>
+                        <span>Personal Information</span>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="text" id="fullName" name="fullName" required
+                                    placeholder="Enter your full name">
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    <input type="tel" id="mobile" name="mobile" required
+                                        placeholder="10-digit mobile number" pattern="[0-9]{10}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="optional-badge">Optional</span></label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    <input type="email" id="email" name="email" placeholder="name@example.com">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Section 3: Location Details -->
+                <div class="form-card-section">
+                    <div class="section-header">
+                        <span class="section-number">3</span>
+                        <span>Location Details</span>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label>Address Type</label>
+                            <div class="segmented-cards">
+                                <label class="segment-option">
+                                    <input type="radio" name="addressType" value="Home"
+                                        onchange="handleLocationTypeChange()" required>
+                                    <span class="segment-title">
+                                        <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2"
+                                            viewBox="0 0 24 24">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                        </svg>
+                                        Home
+                                    </span>
+                                </label>
+                                <label class="segment-option">
+                                    <input type="radio" name="addressType" value="Office"
+                                        onchange="handleLocationTypeChange()">
+                                    <span class="segment-title">
+                                        <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2"
+                                            viewBox="0 0 24 24">
+                                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                        </svg>
+                                        Office
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Home Section -->
+                        <div id="homeAddressContainer" class="hidden">
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label for="homeCity">City</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" viewBox="0 0 24 24">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                        <select id="homeCity" name="homeCity">
+                                            <option value="Hyderabad" selected>Hyderabad</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="homePincode">PIN Code</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="9" y1="9" x2="9" y2="9.01"></line>
+                                            <line x1="15" y1="9" x2="15" y2="9.01"></line>
+                                            <line x1="9" y1="15" x2="9" y2="15.01"></line>
+                                            <line x1="15" y1="15" x2="15" y2="15.01"></line>
+                                        </svg>
+                                        <input type="number" id="homePincode" name="homePincode"
+                                            placeholder="6-digit PIN" min="100000" max="999999">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="homeArea">Area / Neighborhood</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    </svg>
+                                    <input type="text" id="homeArea" name="homeArea"
+                                        placeholder="e.g. Jubilee Hills / Banjara Hills">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="homeAddress">Detailed Address</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    <input type="text" id="homeAddress" name="homeAddress"
+                                        placeholder="Flat No., Villa/Apartment Name, Street">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Office Section -->
+                        <div id="officeAddressContainer" class="hidden">
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label for="officeCity">City</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" viewBox="0 0 24 24">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                        <select id="officeCity" name="officeCity">
+                                            <option value="Hyderabad" selected>Hyderabad</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="officePincode">PIN Code</label>
+                                    <div class="input-wrapper">
+                                        <svg class="input-icon" viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="9" y1="9" x2="9" y2="9.01"></line>
+                                            <line x1="15" y1="9" x2="15" y2="9.01"></line>
+                                            <line x1="9" y1="15" x2="9" y2="15.01"></line>
+                                            <line x1="15" y1="15" x2="15" y2="15.01"></line>
+                                        </svg>
+                                        <input type="number" id="officePincode" name="officePincode"
+                                            placeholder="6-digit PIN" min="100000" max="999999">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="officeName">Office Name / Company</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                    <input type="text" id="officeName" name="officeName"
+                                        placeholder="e.g. TCS / Cyber Towers / Mindspace">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="officeArea">Area / Neighborhood</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    </svg>
+                                    <input type="text" id="officeArea" name="officeArea"
+                                        placeholder="e.g. HITEC City / Gachibowli">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="officeAddress">Detailed Address</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    <input type="text" id="officeAddress" name="officeAddress"
+                                        placeholder="Tower Number, Floor, Bay/Desk Number">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>Submit Details</span>
+                    <svg class="submit-btn-icon" viewBox="0 0 24 24">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // ============================================================
+        // GOOGLE APPS SCRIPT WEB APP URL (already configured)
+        // ============================================================
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyc2FavBhfR5Ulq6pAY_edscPuqIhh56dMQ_1MaUPk7Knj7dDhd41yd5xoH284AT0VC6w/exec';
+
+        // ── Custom Calendar Picker ──────────────────────────────────────────
+        (function () {
+            const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+
+            const btn = document.getElementById('startDateBtn');
+            const popup = document.getElementById('startDateCal');
+            const hiddenInput = document.getElementById('startDate');
+            const calLabel = document.getElementById('calMonthYear');
+            const calDays = document.getElementById('calDays');
+            const prevBtn = document.getElementById('calPrev');
+            const nextBtn = document.getElementById('calNext');
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            let viewYear = today.getFullYear();
+            let viewMonth = today.getMonth(); // 0-indexed
+            let selectedDate = null;
+
+            function formatDisplay(d) {
+                return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+            }
+            function formatISO(d) {
+                const y = d.getFullYear();
+                const m = String(d.getMonth() + 1).padStart(2, '0');
+                const day = String(d.getDate()).padStart(2, '0');
+                return y + '-' + m + '-' + day;
+            }
+
+            function renderCalendar() {
+                calLabel.textContent = MONTHS[viewMonth] + ' ' + viewYear;
+                calDays.innerHTML = '';
+
+                const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+                const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+                // Blank cells before first day
+                for (let i = 0; i < firstDay; i++) {
+                    const blank = document.createElement('div');
+                    blank.className = 'cal-day empty';
+                    calDays.appendChild(blank);
+                }
+
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const cellDate = new Date(viewYear, viewMonth, d);
+                    const cell = document.createElement('div');
+                    cell.className = 'cal-day';
+                    cell.textContent = d;
+
+                    if (cellDate < today) {
+                        cell.classList.add('disabled');
+                    } else {
+                        if (cellDate.getTime() === today.getTime()) cell.classList.add('today');
+                        if (selectedDate && cellDate.getTime() === selectedDate.getTime()) {
+                            cell.classList.add('selected');
+                        }
+                        cell.addEventListener('click', function () {
+                            selectedDate = cellDate;
+                            hiddenInput.value = formatISO(cellDate);
+                            btn.textContent = formatDisplay(cellDate);
+                            btn.classList.add('has-value');
+                            closeCalendar();
+                        });
+                    }
+                    calDays.appendChild(cell);
+                }
+
+                // Disable prev if we are already at or before the current month
+                prevBtn.style.opacity = (viewYear === today.getFullYear() && viewMonth === today.getMonth()) ? '0.35' : '1';
+                prevBtn.style.pointerEvents = (viewYear === today.getFullYear() && viewMonth === today.getMonth()) ? 'none' : 'auto';
+            }
+
+            function openCalendar() {
+                popup.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                btn.classList.add('open');
+                renderCalendar();
+            }
+            function closeCalendar() {
+                popup.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.classList.remove('open');
+            }
+
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                popup.classList.contains('open') ? closeCalendar() : openCalendar();
+            });
+
+            prevBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (viewMonth === 0) { viewMonth = 11; viewYear--; }
+                else { viewMonth--; }
+                renderCalendar();
+            });
+            nextBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (viewMonth === 11) { viewMonth = 0; viewYear++; }
+                else { viewMonth++; }
+                renderCalendar();
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!popup.contains(e.target) && e.target !== btn) {
+                    closeCalendar();
+                }
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeCalendar();
+            });
+
+            // Prevent popup from closing when interacting inside it
+            popup.addEventListener('click', function (e) { e.stopPropagation(); });
+        })();
+        // ───────────────────────────────────────────────────────────────────────
+
+        // Dynamic Location Details Switch
+        function handleLocationTypeChange() {
+            const isHome = document.querySelector('input[name="addressType"][value="Home"]').checked;
+            const isOffice = document.querySelector('input[name="addressType"][value="Office"]').checked;
+
+            const homeContainer = document.getElementById("homeAddressContainer");
+            const officeContainer = document.getElementById("officeAddressContainer");
+
+            const homeInputs = homeContainer.querySelectorAll("input, select");
+            const officeInputs = officeContainer.querySelectorAll("input, select");
+
+            if (isHome) {
+                homeContainer.classList.remove("hidden");
+                officeContainer.classList.add("hidden");
+
+                homeInputs.forEach(input => input.required = true);
+                officeInputs.forEach(input => {
+                    input.required = false;
+                    input.value = "";
+                });
+            } else if (isOffice) {
+                officeContainer.classList.remove("hidden");
+                homeContainer.classList.add("hidden");
+
+                officeInputs.forEach(input => input.required = true);
+                homeInputs.forEach(input => {
+                    input.required = false;
+                    input.value = "";
+                });
+            }
+        }
+
+        // Form submission handler — sends data to Google Sheets
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Clear previous error messages
+            const oldErrors = form.querySelectorAll('.error-message');
+            oldErrors.forEach(e => e.remove());
+
+            // Validate required fields
+            const requiredFields = form.querySelectorAll('[required]');
+            let firstErrorField = null;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    let wrapper;
+                    // Special handling for the custom date picker (hidden input)
+                    if (field.id === 'startDate') {
+                        wrapper = document.getElementById('startDateBtn').parentElement;
+                    } else {
+                        wrapper = field.closest('.input-wrapper') || field.parentElement;
+                    }
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.textContent = field.id === 'startDate' ? 'Please select a start date' : 'This field is required';
+                    errorDiv.style.color = '#c0392b';
+                    errorDiv.style.fontSize = '12px';
+                    errorDiv.style.marginTop = '4px';
+                    errorDiv.style.fontWeight = '600';
+                    wrapper.appendChild(errorDiv);
+                    if (!firstErrorField) firstErrorField = field.id === 'startDate'
+                        ? document.getElementById('startDateBtn')
+                        : field;
+                }
+            });
+
+            if (firstErrorField) {
+                firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstErrorField.focus();
+                return; // stop submission
+            }
+
+            // Disable button while sending
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Submitting...';
+
+            // Send data to Google Sheets
+            const formData = new FormData(form);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    submitBtn.disabled = false;
+                    submitBtn.querySelector('span').textContent = 'Submit Details';
+
+                    if (data.result === 'success') {
+                        // Show success modal
+                        const modal = document.getElementById('successModal');
+                        const messageP = modal.querySelector('p');
+                        const fullName = formData.get('fullName') || 'Subscriber';
+                        messageP.textContent = `Thank you, ${fullName}! Your royal meal subscription request has been submitted successfully. Our team will get back to you soon.`;
+                        modal.classList.add('show');
+                        form.reset();
+                    } else {
+                        alert('There was a problem submitting your form. Please try again.');
+                        console.error('Server Error:', data.error);
+                    }
+                })
+                .catch(error => {
+                    submitBtn.disabled = false;
+                    submitBtn.querySelector('span').textContent = 'Submit Details';
+                    alert('There was a network error. Please check your connection and try again.');
+                    console.error('Network Error:', error);
+                });
+        }
+
+        // Close modal and clear form
+        document.addEventListener('DOMContentLoaded', () => {
+            function closeModal() {
+                const modal = document.getElementById('successModal');
+                modal.classList.remove('show');
+                const form = document.getElementById('mealSubscriptionForm');
+                if (form) form.reset();
+            }
+            const closeBtn = document.getElementById('modalCloseBtn');
+            const closeX = document.getElementById('modalCloseX');
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (closeX) closeX.addEventListener('click', closeModal);
+        });
+    </script>
+    <div id="successModal" class="custom-modal">
+        <div class="modal-content">
+            <!-- X close button top-right -->
+            <button class="modal-close-x" id="modalCloseX" aria-label="Close">✕</button>
+
+            <!-- Logo image area (replaces balloons) -->
+            <div class="modal-balloon-area">
+                <img class="modal-logo"
+                    src="https://cdn.jsdelivr.net/gh/bonedibiryani-de/Bonedi-Everyday-Image@7bbac14a1a7450f448062658143c99c8129bcccc/Bonedi%20Everyday%20White%20BG.jpg"
+                    alt="Bonedi Everyday Logo"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80';">
+            </div>
+
+            <!-- Body text -->
+            <div class="modal-body">
+                <span class="modal-subtitle">◆ Bonedi Everyday ◆</span>
+                <h3 class="modal-title">Thank You for Subscribing!</h3>
+                <p class="modal-message"></p>
+                <button id="modalCloseBtn">Got it, thank you! ›</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
